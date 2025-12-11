@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kebudayaan Pulau Dewata</title>
+
+<!-- SWIPER JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<style>
+/* ===========================================================
+   WARNA UTAMA BALI
+=========================================================== */
+:root {
+    --merah-bata: #b64926;
+    --orange: #ff8c42;
+    --kuning: #ffd23f;
+    --kayu: #8e5a2d;
+    --light: #fff9e6;
+    --dark: #1b1b1b;
+    --text-dark: #222;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--light);
+    transition: 0.4s;
+    color: var(--text-dark);
+}
+
+.dark {
+    background: var(--dark);
+    color: var(--kuning);
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+header {
+    background: var(--merah-bata);
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--kuning);
+    border-bottom: 5px solid var(--kayu);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--kuning);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#darkModeBtn {
+    background: var(--kuning);
+    border: none;
+    padding: 7px 13px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===========================================================
+   HERO SECTION
+=========================================================== */
+.hero {
+    height: 65vh;
+    background: url("bali.jpg") center/cover;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 18%;
+    left: 8%;
+    color: var(--kuning);
+}
+
+.hero-text h1 {
+    font-size: 54px;
+    margin: 0;
+}
+
+/* ===========================================================
+   SECTION
+=========================================================== */
+section {
+    padding: 60px 7%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--merah-bata);
+    font-size: 34px;
+}
+
+/* ===========================================================
+   SLIDER CARD
+=========================================================== */
+.card {
+    background: var(--orange);
+    border: 5px solid var(--kayu);
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+}
+.card img {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.card:hover {
+    transform: scale(1.04);
+    transition: 0.3s;
+}
+
+/* ===========================================================
+   MODAL
+=========================================================== */
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    background: var(--light);
+    padding: 25px;
+    width: 70%;
+    border-radius: 15px;
+    border: 5px solid var(--kayu);
+}
+.dark .modal-box {
+    background: #222;
+    color: var(--kuning);
+}
+
+/* ===========================================================
+   SEARCH KOTA
+=========================================================== */
+#searchKota {
+    width: 100%;
+    padding: 14px;
+    border: 4px solid var(--kayu);
+    border-radius: 10px;
+}
+
+.result {
+    background: var(--light);
+    padding: 25px;
+    border-radius: 10px;
+    border: 4px solid var(--orange);
+}
+
+/* ===========================================================
+   HOTEL / WISATA ITEM
+=========================================================== */
+.item {
+    background: var(--kayu);
+    padding: 25px;
+    border-radius: 15px;
+    color: #fff;
+    border: 4px solid var(--kuning);
+}
+.item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.item a {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--kuning);
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+/* WISHLIST */
+#wishlistBox {
+    padding: 20px;
+    border-radius: 10px;
+    border: 4px solid var(--merah-bata);
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">Pulau Dewata</div>
+
+    <nav>
+        <ul>
+            <li><a href="#budaya">Budaya</a></li>
+            <li><a href="#kota">Kota</a></li>
+            <li><a href="#hotel">Hotel</a></li>
+            <li><a href="#wisata">Wisata</a></li>
+            <li><a href="#wishlist">Wishlist</a></li>
+        </ul>
+    </nav>
+
+    <button id="darkModeBtn">🌙</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Kebudayaan Bali</h1>
+        <p>Tradisi, seni, dan pesona Pulau Dewata</p>
+    </div>
+</section>
+
+<!-- BUDAYA -->
+<section id="budaya">
+    <h2>Budaya Bali</h2>
+
+    <div class="swiper budayaSwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide card" data-key="makanan">
+                <img src="makanan bali.jfif">
+                Makanan Khas Bali
+            </div>
+
+            <div class="swiper-slide card" data-key="tari">
+                <img src="img21.jfif"> 
+                Tarian Bali
+            </div>
+
+            <div class="swiper-slide card" data-key="upacara">
+                <img src="ngaben.jfif">
+                Upacara Adat
+            </div>
+
+            <div class="swiper-slide card" data-key="kerajinan">
+                <img src="kerajinanbali.jfif">
+                Kerajinan Bali
+            </div>
+
+            <div class="swiper-slide card" data-key="desa">
+                <img src="panglipuran.jpg">
+                Desa Adat
+            </div>
+
+            <div class="swiper-slide card" data-key="bahasa">
+                <img src="bahasa bali.jfif">
+                Bahasa Bali
+            </div>
+
+            <div class="swiper-slide card" data-key="dest-budaya">
+                <img src="kecak.jfif">
+                Destinasi Budaya
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<!-- MODAL -->
+<div id="modalContainer"></div>
+
+<!-- KOTA -->
+<section id="kota">
+    <h2>Cari Kota di Bali</h2>
+    <input type="text" id="searchKota" placeholder="Cari kota: Ubud, Denpasar, Badung, Gianyar...">
+    <div id="kotaResult" class="result"></div>
+</section>
+
+<!-- HOTEL -->
+<section id="hotel">
+    <h2>Hotel Bali</h2>
+
+    <label><b>Filter Budget:</b></label>
+    <select id="budgetFilter">
+        <option value="all">Semua</option>
+        <option value="500">Di bawah 500k</option>
+        <option value="1000">500k - 1jt</option>
+        <option value="2000">1jt - 2jt</option>
+        <option value="2001">Di atas 2jt</option>
+    </select>
+
+    <div class="swiper hotelSwiper">
+        <div class="swiper-wrapper" id="hotelList"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<!-- WISATA -->
+<section id="wisata">
+    <h2>Destinasi Wisata Bali</h2>
+
+    <div class="swiper wisataSwiper">
+        <div class="swiper-wrapper" id="wisataList"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<!-- WISHLIST -->
+<section id="wishlist">
+    <h2>Wishlist Anda</h2>
+    <div id="wishlistBox"></div>
+</section>
+
+<!-- JS SWIPER -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+/* ===========================================================
+   DARK MODE
+=========================================================== */
+document.getElementById("darkModeBtn").onclick = () => {
+    document.body.classList.toggle("dark");
+};
+
+/* ===========================================================
+   MODAL PENJELASAN BUDAYA
+=========================================================== */
+const budayaDetail = {
+    makanan: "Makanan Bali seperti Ayam Betutu, Sate Lilit, Lawar, dan Babi Guling menggunakan rempah khas Bali bernama Basa Genep. Hidangan ini memiliki filosofi keseimbangan rasa dan disajikan dalam upacara adat.",
+    tari: "Tari Bali adalah seni sakral yang diwariskan turun temurun. Tari Kecak, Barong, Pendet, dan Legong adalah contoh tarian terkenal. Sebagian besar tarian Bali memiliki makna spiritual.",
+    upacara: "Upacara adat seperti Ngaben, Melasti, Galungan, Kuningan, dan Nyepi merupakan bagian penting spiritual masyarakat Bali. Setiap upacara memiliki makna simbolik tentang kehidupan dan keseimbangan alam.",
+    kerajinan: "Bali terkenal dengan ukiran kayu, patung batu, kerajinan perak Celuk, kain songket, dan lukisan tradisional. Seni kerajinan diwariskan dari generasi ke generasi.",
+    desa: "Desa adat seperti Panglipuran, Tenganan, Trunyan, memiliki aturan adat kuat dan keaslian budaya yang masih terjaga, termasuk arsitektur rumah, tradisi, dan upacara.",
+    bahasa: "Bahasa Bali memiliki tingkatan bahasa: Bali Alus, Bali Madya, dan Bali Kasar. Bahasa ini digunakan sesuai tingkat kesopanan dan status sosial.",
+    "dest-budaya": "Bali memiliki banyak destinasi budaya seperti Pura Besakih, Pura Ulun Danu, Goa Gajah, Pura Saraswati, dan berbagai puri kerajaan."
+};
+
+document.querySelectorAll(".card").forEach(c => {
+    c.onclick = () => {
+        let key = c.getAttribute("data-key");
+        openModal(budayaDetail[key]);
+    };
+});
+
+function openModal(text) {
+    document.getElementById("modalContainer").innerHTML = `
+        <div class="modal-bg" onclick="this.remove()">
+            <div class="modal-box" onclick="event.stopPropagation()">
+                <h2>Penjelasan Detail</h2>
+                <p>${text}</p>
+            </div>
+        </div>`;
+}
+
+/* ===========================================================
+   DATA KOTA
+=========================================================== */
+const kotaData = {
+    ubud:{makanan:"Lawar Kuwir, Babi Guling",destinasi:"Ubud Palace, Monkey Forest",ciri:"Kota seni & budaya"},
+    denpasar:{makanan:"Ayam Betutu",destinasi:"Pantai Sanur, Museum Bali",ciri:"Ibu Kota Bali"},
+    badung:{makanan:"Betutu, Jukut Ares",destinasi:"Kuta, Seminyak, Canggu",ciri:"Pusat pariwisata"},
+    gianyar:{makanan:"Timbungan, Lawar",destinasi:"Bali Zoo, Goa Gajah",ciri:"Kota seni ukir"},
+    tabanan:{makanan:"Sate Penyu (tradisional)",destinasi:"Tanah Lot, Jatiluwih",ciri:"Kota sawah & pura"},
+    bangli:{makanan:"Tape Singkong",destinasi:"Kintamani, Danau Batur",ciri:"Pegunungan & desa adat"},
+};
+
+document.getElementById("searchKota").oninput = function() {
+    let v = this.value.toLowerCase();
+    let box = document.getElementById("kotaResult");
+
+    if(kotaData[v]){
+        let d = kotaData[v];
+        box.innerHTML = `
+            <h3>${v.toUpperCase()}</h3>
+            <p><b>Makanan:</b> ${d.makanan}</p>
+            <p><b>Destinasi:</b> ${d.destinasi}</p>
+            <p><b>Ciri khas:</b> ${d.ciri}</p>
+        `;
+    } else {
+        box.innerHTML = "Kota tidak ditemukan...";
+    }
+};
+
+/* ===========================================================
+   DATA HOTEL
+=========================================================== */
+const hotelData = [
+    {nama:"Ubud Luxury Resort",img:"https://www.viceroybali.com/wp-content/uploads/2024/12/Luxury-Resort-Ubud.jpg",harga:750,lokasi:"Ubud",kategori:"Resort",rating:4.9,link:"https://traveloka.com"},
+    {nama:"Kuta Beach Stay",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpufDRmbgFKuNc2ExoN8Z1EMXX7s2kg3oFgA&s",harga:450,lokasi:"Kuta",kategori:"Hotel",rating:4.6,link:"https://traveloka.com"},
+    {nama:"Sanur Garden Villa",img:"https://cf.bstatic.com/xdata/images/hotel/max1024x768/126780059.jpg?k=6b06f18283c7e9947720069dd60a154fec210a783590af567aa0c0c35addfe40&o=",harga:1200,lokasi:"Sanur",kategori:"Villa",rating:4.8,link:"https://traveloka.com"},
+    {nama:"Nusa Dua Paradise",img:"data:image/jpeg;base64,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",harga:2200,lokasi:"Nusa Dua",kategori:"Resort Premium",rating:5.0,link:"https://traveloka.com"}
+];
+
+function loadHotel(filter="all"){
+    const wrap = document.getElementById("hotelList");
+    wrap.innerHTML = "";
+
+    hotelData.forEach(h=>{
+        let ok=false;
+
+        if(filter==="all") ok=true;
+        else if(filter==="500" && h.harga<500) ok=true;
+        else if(filter==="1000" && h.harga>=500 && h.harga<=1000) ok=true;
+        else if(filter==="2000" && h.harga>=1000 && h.harga<=2000) ok=true;
+        else if(filter==="2001" && h.harga>2000) ok=true;
+
+        if(!ok) return;
+
+        wrap.innerHTML += `
+            <div class="swiper-slide item">
+                <img src="${h.img}">
+                <h3>${h.nama}</h3>
+                <p><b>Lokasi:</b> ${h.lokasi}</p>
+                <p><b>Kategori:</b> ${h.kategori}</p>
+                <p><b>Harga:</b> Rp ${h.harga}K</p>
+                <p><b>Rating:</b> ⭐${h.rating}</p>
+                <a href="${h.link}" target="_blank">Booking</a>
+            </div>
+        `;
+    });
+}
+loadHotel();
+
+document.getElementById("budgetFilter").onchange = function(){
+    loadHotel(this.value);
+};
+
+/* ===========================================================
+   DATA WISATA
+=========================================================== */
+const wisataData = [
+    {nama:"Tanah Lot",img:"tanah lot.jfif",lokasi:"Tabanan",kategori:"Pura",harga:60,buka:"07.00–19.00",rating:4.9,link:"https://traveloka.com"},
+    {nama:"Kelingking Beach",img:"https://asset.kompas.com/crops/ooF1IaAukT1226UkQtLcLhXSC3U=/0x0:1200x800/1200x800/data/photo/2024/11/02/6725db0c491c5.jpg",lokasi:"Nusa Penida",kategori:"Pantai",harga:25,buka:"24 Jam",rating:5.0,link:"https://traveloka.com"},
+];
+
+wisataData.forEach(w=>{
+    document.getElementById("wisataList").innerHTML += `
+        <div class="swiper-slide item">
+            <img src="${w.img}">
+            <h3>${w.nama}</h3>
+            <p><b>Lokasi:</b> ${w.lokasi}</p>
+            <p><b>Kategori:</b> ${w.kategori}</p>
+            <p><b>Harga Tiket:</b> Rp ${w.harga}.000</p>
+            <p><b>Jam Buka:</b> ${w.buka}</p>
+            <p><b>Rating:</b> ⭐${w.rating}</p>
+            <a href="${w.link}" target="_blank">Pesan Tiket</a>
+        </div>
+    `;
+});
+
+/* ===========================================================
+   WISHLIST
+=========================================================== */
+function loadWishlist(){
+    let box = document.getElementById("wishlistBox");
+    let data = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+    if(!data.length){ box.innerHTML="Belum ada wishlist."; return;}
+
+    box.innerHTML = data.map(i=>`<p>⭐ ${i}</p>`).join("");
+}
+loadWishlist();
+
+/* ===========================================================
+   SWIPER INIT
+=========================================================== */
+new Swiper(".budayaSwiper",{slidesPerView:2,spaceBetween:15,pagination:{el:".swiper-pagination"}});
+new Swiper(".hotelSwiper",{slidesPerView:1.2,spaceBetween:18,pagination:{el:".swiper-pagination"}});
+new Swiper(".wisataSwiper",{slidesPerView:1.2,spaceBetween:18,pagination:{el:".swiper-pagination"}});
+</script>
+
+</body>
+</html>
+
+
